@@ -1,30 +1,97 @@
 <template>
-  <nav>
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
-  </nav>
-  <router-view/>
+
+  <div id="app">
+      <BizoLoaderVue></BizoLoaderVue>
+      <NavbarVue></NavbarVue>
+      <router-view/>
+      <!--<div class="mt-5 py-5">
+        Lorem ipsum dolor sit amet.
+      </div>
+      <div class="mt-5 py-5">
+        Lorem ipsum dolor sit amet.
+      </div>
+      <div class="mt-5 py-5">
+        Lorem ipsum dolor sit amet.
+      </div>
+      <div class="mt-5 py-5">
+        Lorem ipsum dolor sit amet.
+      </div>
+      <div class="mt-5 py-5">
+        Lorem ipsum dolor sit amet.
+      </div>
+      <div class="mt-5 py-5">
+        Lorem ipsum dolor sit amet.
+      </div>
+      <div class="mt-5 py-5">
+        Lorem ipsum dolor sit amet.
+      </div>
+      <div class="mt-5 py-5">
+        Lorem ipsum dolor sit amet.
+      </div>-->
+    
+  </div>
 </template>
 
-<style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
+<script>
+ import BizoLoaderVue from "./components/BizoLoader.vue";
+ import NavbarVue from "./components/Navbar.vue";
+ import AOS from "aos";
+  export default{
+    data(){
+      return{
 
-nav {
-  padding: 30px;
+      }
+    },
+    methods:{
 
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
+    },
+    mounted(){
+      AOS.init();
+    },
+    components:{
+      NavbarVue,BizoLoaderVue
     }
   }
+
+</script>
+
+<style >
+#app{
+  background-color: whitesmoke;
 }
+.button{
+  display: inline-block;
+  padding:10px 10px;
+  border:.2rem solid #ff2d75;
+  color:#ff2d75;
+  cursor: pointer;
+  font-size:15px;
+  border-radius: .5rem;
+  position: relative;
+  overflow: hidden;
+  z-index: 0;
+  margin-top: 1rem;
+ }
+
+.button::before{
+  content: '';
+  position: absolute;
+  top:0; right: 0;
+  width:0%;
+  height:100%;
+  background:#ff2d75;
+  transition: .3s linear;
+  z-index: -1;
+}
+
+.button:hover::before{
+  width:100%;
+  left: 0;
+}
+
+.button:hover{
+  color:#fff;
+}
+
+
 </style>
