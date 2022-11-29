@@ -12,10 +12,15 @@
     "@fortawesome/free-brands-svg-icons": "^6.2.1",
     "@fortawesome/free-solid-svg-icons": "^6.2.1",
     "@fortawesome/vue-fontawesome": "^3.0.2",
+    "@lottiefiles/vue-lottie-player": "^1.0.9",
+    "aos": "^2.3.4",
     "bootstrap": "^5.2.3",
     "core-js": "^3.8.3",
+    "emailjs-com": "^3.2.0",
+    "lottie-player-vue": "^0.0.16",
     "vue": "^3.2.13",
-    "vue-router": "^4.0.3"
+    "vue-router": "^4.0.3",
+    "vue3-lottie": "^2.4.0"
   },
   "devDependencies": {
     "@babel/core": "^7.12.16",
@@ -28,5 +33,8 @@
     "eslint-plugin-vue": "^8.0.3",
     "sass": "^1.32.7",
     "sass-loader": "^12.0.0"
+  },
+  "rules": {
+    "vue/multi-word-component-names": "off"
   }
 }
