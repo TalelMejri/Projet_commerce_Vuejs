@@ -3,7 +3,7 @@
         <header>
             <div  data-aos-offset="200"
                   data-aos-easing="ease-in-out"
-                  data-aos="zoom-in" class="container">
+                  data-aos="zoom-out" class="container">
              <div class="landing-page py-5">
                     <div class="row py-5">
                             <div class="col-lg-6 py-5" >
