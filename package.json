@@ -14,6 +14,7 @@
     "@fortawesome/vue-fontawesome": "^3.0.2",
     "@lottiefiles/vue-lottie-player": "^1.0.9",
     "aos": "^2.3.4",
+    "axios": "^1.2.0",
     "bootstrap": "^5.2.3",
     "core-js": "^3.8.3",
     "emailjs-com": "^3.2.0",

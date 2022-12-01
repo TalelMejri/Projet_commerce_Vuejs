@@ -4,31 +4,6 @@
       <BizoLoaderVue></BizoLoaderVue>
       <NavbarVue></NavbarVue>
       <router-view/>
-      <!--<div class="mt-5 py-5">
-        Lorem ipsum dolor sit amet.
-      </div>
-      <div class="mt-5 py-5">
-        Lorem ipsum dolor sit amet.
-      </div>
-      <div class="mt-5 py-5">
-        Lorem ipsum dolor sit amet.
-      </div>
-      <div class="mt-5 py-5">
-        Lorem ipsum dolor sit amet.
-      </div>
-      <div class="mt-5 py-5">
-        Lorem ipsum dolor sit amet.
-      </div>
-      <div class="mt-5 py-5">
-        Lorem ipsum dolor sit amet.
-      </div>
-      <div class="mt-5 py-5">
-        Lorem ipsum dolor sit amet.
-      </div>
-      <div class="mt-5 py-5">
-        Lorem ipsum dolor sit amet.
-      </div>-->
-    
   </div>
 </template>
 
@@ -55,7 +30,7 @@
 
 </script>
 
-<style >
+<style>
 #app{
   background-color: whitesmoke;
 }
