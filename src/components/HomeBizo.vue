@@ -15,10 +15,10 @@
                                         <h3 > Join Us </h3>
                                         <div class="py-4 d-flex  justify-content-center">
                                             <div class="mx-4">
-                                              <a  href="#"><button  class="button">Sign In</button></a>
+                                              <a  href="#"><router-link to="/login" > <button  class="button">Sign In</button></router-link></a>
                                             </div>
                                            <div  class="">
-                                             <a href="#"><button class="button">Sign Up</button></a>  
+                                             <a href="#"> <router-link to="/signup" > <button class="button">Sign Up</button> </router-link></a>  
                                           </div> 
                                         </div>
                                   </div>

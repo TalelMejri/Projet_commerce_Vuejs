@@ -1,4 +1,5 @@
 <template>
+
     <div class="container-fluid d-flex justify-content-center mb-4">
         <div class="">
             <div class="box_count">
@@ -10,27 +11,34 @@
           </div>
      </div>
     </div>
+    
 </template>
 
 <script>
 import PureCounter from "@srexi/purecounterjs";
-import axios from "axios";
+import service from "@/services/service.js";
 export default{
-    mounted(){
-        new PureCounter();
-    },
-    created(){
-        axios.get("http://localhost:8000/api/user_made/count").then((response)=>{
-            this.nbruser=response.data.data;
-            console.log(response.data.data);
-        })
-     },
     name:'ourusers',
     data(){
         return{
             nbruser:0
         }
-    }
+    },
+
+    mounted(){
+        new PureCounter();
+    },
+
+    created(){
+        service.getCountUser().then((response)=>{
+            console.log(response.data);
+            this.nbruser=response.data.data;
+        }).catch((error)=>{
+            console.log(error);
+        })
+
+     },
+  
 }
 </script>
 
