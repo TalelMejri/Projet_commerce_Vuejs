@@ -11,14 +11,14 @@
                                 <div class="py-5 mt-5">
                                   <div class="intro_text text-center">
                                     <h1 >You Make the World a better Place </h1>
-                                    <h2 >Just By being in it</h2>
+                                    <h2 >Just By being in it </h2>
                                         <h3 > Join Us </h3>
                                         <div class="py-4 d-flex  justify-content-center">
                                             <div class="mx-4">
-                                              <a  href="./auth/login/ "><button  class="button">Sign In</button></a>
+                                              <a  href="#"><button  class="button">Sign In</button></a>
                                             </div>
                                            <div  class="">
-                                             <a href="./auth/signup/"><button class="button">Sign Up</button></a>  
+                                             <a href="#"><button class="button">Sign Up</button></a>  
                                           </div> 
                                         </div>
                                   </div>
@@ -36,15 +36,27 @@
             </div>
         </div>    
     </header>
+    <service></service>
+    <ourUsers></ourUsers>
+    <faq></faq>
+    <Know_us></Know_us>
+    <contact_us></contact_us>
+    <foooter></foooter>
 </div>
 </template>
 
 <script>
+import service from "@/components/home/service.vue";
+import ourUsers from "@/components/home/ourusers.vue";
+import faq from "@/components/home/Faq.vue";
+import contact_us from "@/components/home/contact_us.vue";
+import Know_us from "@/components/home/know_us.vue";
+import foooter from "@/components/home/footer_home.vue";
 import { Vue3Lottie } from 'vue3-lottie'
 import 'vue3-lottie/dist/style.css'
 export default {
     components: {
-        Vue3Lottie,
+        Vue3Lottie,service,ourUsers,faq,contact_us,Know_us,foooter
     },
 }
 </script>

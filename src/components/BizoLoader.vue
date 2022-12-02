@@ -10,7 +10,7 @@
             </p>
         </div>
     </div>
-    </template>
+</template>
     
 <script>
     export default{
@@ -27,7 +27,7 @@
 </script>
 
     <style scoped>
-    .pre_loader{
+.pre_loader{
     background-color:  #5995fd;
     height: 100vh;
     z-index: 99999;
@@ -41,7 +41,7 @@
     align-items: center;
     }
     
-    .content_preloader span{
+.content_preloader span{
     color: rgb(242, 242, 242);
     font-size: 4rem;
     height: fit-content;
