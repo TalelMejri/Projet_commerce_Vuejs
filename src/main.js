@@ -17,7 +17,12 @@ import { library } from '@fortawesome/fontawesome-svg-core';
 import { faSpinner,faUser,faComment,faImage,faCertificate,faThumbsUp,faUserGroup, faUserCheck, faCalculator, faShop } from '@fortawesome/free-solid-svg-icons';
 import { faFacebook,faLinkedin,faTwitter,faYoutube } from '@fortawesome/free-brands-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
+import { createPinia } from 'pinia';
+import { jwtInterceptor } from './globals/interceptors';
 library.add(faSpinner,faFacebook,faLinkedin,faUser,faTwitter,faYoutube,faComment,faImage,faCertificate,
     faThumbsUp,faUserGroup,faUserCheck,faCalculator,faShop);
 
-createApp(App).use(router).use(Vue3Lottie).component('font-awesome-icon', FontAwesomeIcon).mount('#app')
+const pinia = createPinia()
+
+jwtInterceptor()
+createApp(App).use(pinia).use(router).use(Vue3Lottie).component('font-awesome-icon', FontAwesomeIcon).mount('#app')
