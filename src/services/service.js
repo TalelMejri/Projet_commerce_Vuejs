@@ -15,6 +15,7 @@ export default{
     },
 
     createUser(user){
+        
         let data = new FormData();
         
         data.append("file",user.file);
@@ -28,7 +29,6 @@ export default{
             },
           };
         return axios.post('auth/register',data,config);  
-
     }
     
  

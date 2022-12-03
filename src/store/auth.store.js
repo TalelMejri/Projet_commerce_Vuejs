@@ -3,6 +3,7 @@ import { defineStore } from "pinia"
 import { computed, ref } from "vue";
 
 export const useAuthStore = defineStore('auth', () => {
+    
     const token = ref(localStorage.getItem('token')??null);
     const user = ref(JSON.parse(localStorage.getItem('user'))??null);
     const isAuth = ref((localStorage.getItem('user')&&localStorage.getItem('token')));
@@ -17,6 +18,7 @@ export const useAuthStore = defineStore('auth', () => {
         isAuth.value = true;
         localStorage.setItem('token',t);
         localStorage.setItem('user',JSON.stringify(u));
+        router.push({name:"shop"});
     }
 
     function logout(){
@@ -26,12 +28,8 @@ export const useAuthStore = defineStore('auth', () => {
         localStorage.removeItem('token');
         localStorage.removeItem('user');
         router.push({name:"login"});
-
     }
-    
 
-
-   
-  
     return { token,user,isAuth,login,logout}
+
 })

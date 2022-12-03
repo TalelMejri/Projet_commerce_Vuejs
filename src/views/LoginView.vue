@@ -29,8 +29,7 @@
                                      </span>
                                    </div> 
                                    </div>
-                                       <button style="font-size:19px" type="submit" name="submit" class="btn btn-primary btn-block w-100 rounded-pill mb-5">Login</button>
-                                       <button style="font-size:19px" type="button" name="button" @click="testLogin()" class="btn btn-primary btn-block w-100 rounded-pill mb-5">Login</button>
+                                       <button style="font-size:19px" type="submit" name="submit"  class="btn btn-primary btn-block w-100 rounded-pill mb-5">Login</button>
                                    </form>
                                    <hr>
                                     <div class="fin text-center">
@@ -45,10 +44,13 @@
     </div>
 </template>
 <script>
+
 import { defineComponent,ref } from 'vue'
 import authService  from '@/services/authService';
 import { useAuthStore } from '@/store/auth.store';
+
 export default defineComponent({
+
   setup() {
     const store = useAuthStore();
 
@@ -61,8 +63,6 @@ export default defineComponent({
 
     const testLogin = () => {
       authService.testLogin().then((a)=>{
-        console.log(a.data);
-        alert(a.data.name);
       }).catch((b)=>{alert(b)});
     }
     return {

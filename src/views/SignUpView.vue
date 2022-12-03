@@ -11,7 +11,7 @@
                                 <form class="py-4" @submit.prevent="ADD_user" enctype="multipart/form-data">
                                    <div class="row mb-4 ">
                                       <div class="col-lg-6">
-                                        <!-- <label>Name</label> -->
+                                       <label>Name</label>
                                         <input type="text" v-model="name" class="form-control " >
                                       </div>
                                       <div class="col-lg-6">
@@ -64,18 +64,28 @@
                                 </form>
                             </div>
                             <div class="col-lg-6 d-none d-lg-block ">
-                              <!--https://assets1.lottiefiles.com/packages/lf20_q5pk6p1k.json-->
+                              <Vue3Lottie
+                              data-aos="zoom-out" data-aos-delay="50"
+                               animationLink="https://assets1.lottiefiles.com/packages/lf20_q5pk6p1k.json"
+                               style="width: 100%; height: 100%;"
+                          />
+                              <!---->
                               
                            </div>
                       </div>  
         </div>
         </div>
          </div>
+         <button type="button" class="btn btn-primary" id="liveToastBtn">Show live toast</button>
+
+
+
     </div>
 </template>
 
 <script>
-import axios from 'axios';
+//import axios from 'axios';
+import { useToast } from "vue-toastification";
 import service from '../services/service';
 
 export default{
@@ -90,6 +100,7 @@ export default{
       //data:{}
     }
   },
+  
   methods:{
 
    upload_image() {
@@ -114,4 +125,5 @@ export default{
     }
   }
 }
+
 </script>

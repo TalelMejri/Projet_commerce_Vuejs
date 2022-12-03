@@ -96,7 +96,7 @@
                       </span>
                     </div>
                     <div class="col-md-2">
-                      Bahra Zebbi <span class="text-danger">❤</span>
+                      Bahra  <span class="text-danger">❤</span>
                     </div>
                   </div>
                   <div class="row mb-3">
