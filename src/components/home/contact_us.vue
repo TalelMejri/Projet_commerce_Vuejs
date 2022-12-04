@@ -147,7 +147,7 @@ export default {
       setTimeout(() => (this.afficher_error = 0), 4000);
     },
     Onsubmit() {
-      let valid = this.validate('name') && this.validate('email') &&this.validate('messages');
+      let valid = this.validate('name') && this.validate('email') && this.validate('messages');
       console.log(valid);
     },
     validate(input) {
