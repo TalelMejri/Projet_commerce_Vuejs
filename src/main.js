@@ -17,13 +17,13 @@ import 'aos/dist/aos.css';
 import "../src/assets/style.css";
 import { library } from '@fortawesome/fontawesome-svg-core';
 
-import { faSpinner,faUser,faComment,faImage,faCertificate,faThumbsUp,faUserGroup, faUserCheck, faCalculator, faShop } from '@fortawesome/free-solid-svg-icons';
+import { faSpinner,faUser,faComment,faImage,faCertificate,faBell,faThumbsUp,faUserGroup, faUserCheck, faCalculator, faShop,faEyeSlash,faEye,faHouseUser} from '@fortawesome/free-solid-svg-icons';
 import { faFacebook,faLinkedin,faTwitter,faYoutube } from '@fortawesome/free-brands-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 import { createPinia } from 'pinia';
 import { jwtInterceptor } from './globals/interceptors';
 library.add(faSpinner,faFacebook,faLinkedin,faUser,faTwitter,faYoutube,faComment,faImage,faCertificate,
-    faThumbsUp,faUserGroup,faUserCheck,faCalculator,faShop);
+    faThumbsUp,faUserGroup,faUserCheck,faCalculator,faShop,faEyeSlash,faEye,faBell,faHouseUser);
 
 const pinia = createPinia()
 
