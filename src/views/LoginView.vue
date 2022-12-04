@@ -1,4 +1,7 @@
 <template>
+  <div>
+    <navbar></navbar>
+  
     <div class="mt-5 py-2">
          <div class="mt-5 py-1">
             <div class="login">
@@ -27,13 +30,15 @@
                                        <input v-model="email"  type="text" placeholder="Entrer Email Address..." name="email" class="form-control mb-2" id="exampleInputEmail1">
                                    </div>
                                    <div class="mb-5 ">
-                                     <div class="input-group d-flex">
-                                     <input v-model="pass" type="password" id="pass" class="form-control mb-2" name="password" placeholder="Entrer Your Password">
-                                      <span class="input-group-btn">
-                                        <button id="changer_visible" class="btn btn-primary" type="button">
-                                      </button>
-                                     </span>
-                                   </div> 
+                                    <div class="input-group">
+                                      <input :type="type_password" v-model="pass"  class="form-control" >
+                                       <span class="input-group-btn">
+                                         <button id="changer_visible" @click="changer_visib_password()" class="btn btn-primary" type="button">
+                                            <font-awesome-icon :icon="`fa-solid fa-${visibilite_password}`"/>
+                                        </button>
+                                      </span>
+                                 
+                                    </div>  
                                    </div>
                                        <button style="font-size:19px" type="submit" name="submit"  class="btn btn-primary btn-block w-100 rounded-pill mb-5">Login</button>
                                    </form>
@@ -48,13 +53,14 @@
              </div>
          </div>
     </div>
+  </div>
 </template>
 <script>
 
 import { defineComponent,ref } from 'vue'
 import authService  from '@/services/authService';
 import { useAuthStore } from '@/store/auth.store';
-
+import navbar from "@/components/Navbar.vue";
 export default defineComponent({
   created(){
       if(typeof(this.$route.query.content)!='undefined'){
@@ -63,14 +69,28 @@ export default defineComponent({
   },  
   data(){
     return{
-      message:''
+      message:'',
+      type_password:'password',
+      visibilite_password:'eye'
     }
+ },
+ methods:{
+
+  changer_visib_password(){
+      this.visibilite_password= this.visibilite_password=='eye-slash' ? 'eye' : 'eye-slash';  
+      this.type_password=this.visibilite_password=='eye' ? 'text' : 'password';
+    }
+    
+ },
+ components:{
+  navbar
  },
   setup() {
     const store = useAuthStore();
     const email = ref('');
     const pass = ref('');
     const message_error = ref('');
+   
     const login = () => {
       authService.login(email.value,pass.value).then((response)=>{
          console.log("fff");
@@ -87,6 +107,7 @@ export default defineComponent({
       email,
       pass,
       login,
+
       message_error,
      // testLogin,
       store
