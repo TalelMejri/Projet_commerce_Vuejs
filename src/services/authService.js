@@ -3,10 +3,6 @@ import { useAuthStore } from "@/store/auth.store";
 
 export default{
 
-  /*  testLogin(){
-        return axios.get('user');
-    },
-*/
     async login(email,password){
 
         const State = useAuthStore();
@@ -17,7 +13,7 @@ export default{
         }else{
            State.logout();
         }
-        
+
     }
    
 }

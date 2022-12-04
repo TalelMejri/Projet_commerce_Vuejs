@@ -15,6 +15,12 @@
                              <div class=" col-lg-6 py-5">
                                    <div class="text-center">
                                      <h1 class="h4 text-gray-900 mb-5">Welcome Back !</h1>
+                                      <div v-if="message!=''" class="alert alert-success">
+                                          {{message}}
+                                      </div>
+                                      <div v-if="message_error!=''" class="alert alert-danger">
+                                        {{message_error}}
+                                    </div>
                                    </div>
                                  <form @submit.prevent="login()">
                                    <div class="mb-4">
@@ -50,26 +56,39 @@ import authService  from '@/services/authService';
 import { useAuthStore } from '@/store/auth.store';
 
 export default defineComponent({
-
+  created(){
+      if(typeof(this.$route.query.content)!='undefined'){
+         this.message = this.$route.query.content;
+      }
+  },  
+  data(){
+    return{
+      message:''
+    }
+ },
   setup() {
     const store = useAuthStore();
-
     const email = ref('');
     const pass = ref('');
-
+    const message_error = ref('');
     const login = () => {
-      authService.login(email.value,pass.value);
+      authService.login(email.value,pass.value).then((response)=>{
+         console.log("fff");
+      }).catch((r)=>{
+        message_error.value = r.response.data.message;
+      })
     }
 
-    const testLogin = () => {
+   /* const testLogin = () => {
       authService.testLogin().then((a)=>{
       }).catch((b)=>{alert(b)});
-    }
+    }*/
     return {
       email,
       pass,
       login,
-      testLogin,
+      message_error,
+     // testLogin,
       store
     }
   },

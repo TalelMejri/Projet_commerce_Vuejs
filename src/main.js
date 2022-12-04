@@ -4,17 +4,15 @@ import router from './router'
 
 import "bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
+import "bootstrap/dist/js/bootstrap.bundle"
 import "bootstrap/js/dist/offcanvas";
 import "bootstrap/js/dist/alert";
 import "bootstrap/js/dist/modal";
 import "bootstrap/js/dist/toast";
-
 import "bootstrap/js/dist/dropdown";
 import Vue3Lottie from 'vue3-lottie'
 import 'vue3-lottie/dist/style.css'
 
-import Toast from "vue-toastification";
-import "vue-toastification/dist/index.css";
 import 'aos/dist/aos.css';
 import "../src/assets/style.css";
 import { library } from '@fortawesome/fontawesome-svg-core';
@@ -30,4 +28,5 @@ library.add(faSpinner,faFacebook,faLinkedin,faUser,faTwitter,faYoutube,faComment
 const pinia = createPinia()
 
 jwtInterceptor()
-createApp(App).use(pinia).use(Toast).use(router).use(Vue3Lottie).component('font-awesome-icon', FontAwesomeIcon).mount('#app')
+
+createApp(App).use(pinia).use(router).use(Vue3Lottie).component('font-awesome-icon', FontAwesomeIcon).mount('#app')
