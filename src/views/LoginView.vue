@@ -90,10 +90,15 @@ export default defineComponent({
     const email = ref('');
     const pass = ref('');
     const message_error = ref('');
-   
+    
     const login = () => {
       authService.login(email.value,pass.value).then((response)=>{
-         console.log("fff");
+          console.log(response);
+          /*if(store.isAdmin==true){
+            this.$router.push({name:"ProfilAdmin"});
+          }else{ 
+            this.$router.push({name:"shop"});
+          }*/
       }).catch((r)=>{
         message_error.value = r.response.data.message;
       })
