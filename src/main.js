@@ -4,12 +4,12 @@ import router from './router'
 
 import "bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
-import "bootstrap/dist/js/bootstrap.bundle"
-import "bootstrap/js/dist/offcanvas";
-import "bootstrap/js/dist/alert";
-import "bootstrap/js/dist/modal";
-import "bootstrap/js/dist/toast";
-import "bootstrap/js/dist/dropdown";
+import "bootstrap/js/src/dropdown";
+import "bootstrap/dist/js/bootstrap.bundle";
+import "bootstrap/js/src/toast";
+
+
+
 import Vue3Lottie from 'vue3-lottie'
 import 'vue3-lottie/dist/style.css'
 
