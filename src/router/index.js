@@ -4,7 +4,8 @@ import calculer from "../views/CalculaterView.vue";
 import shop from "../views/ShopView.vue";
 import login from "../views/LoginView.vue";
 import signup from "../views/SignUpView.vue";
-import { useAuthStore } from "@/store/auth.store";
+import ProfilAdmin from "../views/ProfilAdminView.vue";
+//import { useAuthStore } from "@/store/auth.store";
 
 const routes = [
   {
@@ -17,14 +18,21 @@ const routes = [
     path: "/shop",
     name: "shop",
     component: shop,
-    meta: { requiresAuth: true },
+    //meta: { requiresAuth: true },
+  },
+
+  {
+    path: "/ProfilAdmin",
+    name: "ProfilAdmin",
+    component: ProfilAdmin,
+    //meta: { requiresAuth: true },
   },
 
   {
     path: "/Calculer",
     name: "Calculer",
     component: calculer,
-    meta: { requiresAuth: true },
+   // meta: { requiresAuth: true },
   },
 
   {
@@ -38,26 +46,34 @@ const routes = [
     name: "Signup",
     component: signup,
   },
+
 ];
 
 const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
   routes,
 });
-
+/*
 router.beforeEach((to, from) => {
   
-  const { isAuth } = useAuthStore();
-  if(isAuth&&to.name==="login"){
+  const isAuth = useAuthStore();
+/*
+  if(isAuth.isAuth &&to.name==="login"){
     return {name:'home'}
   }
 
   if(to.meta.requiresAuth){
-    if (!isAuth && to.name !== "login") {
+    if (!isAuth.isAuth && to.name !== "login") {
       return { name: "login" };
     }
   }
 
-});
+  if(to.meta.requiresAuth){
+    if (!isAuth.isAuth && !isAuth.isAdmin &&  to.name !== "login") {
+      return { name: "login" };
+    }
+  }
+*/
+//});
 
 export default router;
