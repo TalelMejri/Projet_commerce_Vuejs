@@ -6,12 +6,12 @@ export default{
     async login(email,password){
 
         const State = useAuthStore();
-        const res = await axios.post('auth/login',{email,password})
-       
+        const res = await axios.post('auth/login',{email,password});
+        console.log(res);
         if(res.status==200){
-            State.login(res.data.token,res.data.user);
+            State.login(res.data.token,res.data.user,res.data.isAdmin);
         }else{
-           State.logout();
+            State.logout();
         }
 
     }
