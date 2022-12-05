@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     
-        <BizoLoaderVue></BizoLoaderVue>
+      <BizoLoaderVue></BizoLoaderVue>
       <transition name="fade" mode="out-in">
          <router-view/>
       </transition>
@@ -10,7 +10,6 @@
 
 <script>
  import BizoLoaderVue from "./components/BizoLoader.vue";
-
 
  import AOS from "aos";
   export default{
