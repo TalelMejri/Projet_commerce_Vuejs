@@ -5,6 +5,7 @@ import shop from "../views/ShopView.vue";
 import login from "../views/LoginView.vue";
 import signup from "../views/SignUpView.vue";
 import ProfilAdmin from "../views/ProfilAdminView.vue";
+
 //import { useAuthStore } from "@/store/auth.store";
 
 const routes = [

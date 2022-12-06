@@ -71,6 +71,7 @@
 </template>
 
 <script>
+
 import service from "@/components/home/service.vue";
 import ourUsers from "@/components/home/ourusers.vue";
 import navbar from "@/components/Navbar.vue";
@@ -81,13 +82,16 @@ import foooter from "@/components/home/footer_home.vue";
 import { Vue3Lottie } from 'vue3-lottie'
 import 'vue3-lottie/dist/style.css'
 export default {
+  
     components: {
         Vue3Lottie,service,ourUsers,faq,contact_us,Know_us,foooter,navbar
     },
 }
+
 </script>
 
-<style>
+<style scoped>
+@import '@/assets/style.css';
 
 header{
   height:100vh;
