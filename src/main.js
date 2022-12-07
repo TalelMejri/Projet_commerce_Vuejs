@@ -7,8 +7,6 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap"
 import "bootstrap/js/src/dropdown";
 
-
-
 import Vue3Lottie from 'vue3-lottie'
 import 'vue3-lottie/dist/style.css'
 

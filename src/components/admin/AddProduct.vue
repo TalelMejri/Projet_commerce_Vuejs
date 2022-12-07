@@ -1,7 +1,7 @@
 <template>
 <div>
-    <div class="mt-5 py-2">
-        <div class="mt-5 "> 
+    <div class="mt-2 py-2">
+        <div class="mt-2 "> 
            <div class="d-flex p-3 m-4 justify-content-center">   
                <div class="col-xl-10 ">
                      <div class="row shadow-lg rounded">
@@ -9,12 +9,17 @@
                                    <div class="text-center">
                                       <h1 class="h4 fw-bolder mb-3 py-3">Add Product</h1>
                                    </div> 
-                               <form class="py-4" @submit.prevent="Add_Product" enctype="multipart/form-data">
+                                   <div v-if="message_error!=''" class="alert alert-danger">
+                                        {{message_error}}
+                                   </div>
+                               <form class="py-4" @submit.prevent="Onsubmit" enctype="multipart/form-data">
                                   <div class="row mb-4 ">
                                      <div class="col-lg-6">
                                       <label>Name Product</label>
-                                       <input type="text" v-model="Name_Product" class="form-control" > 
-                                     </div>
+                                       <input type="text"  
+                                       v-model="Name_Product" class="form-control" > 
+                                           
+                                          </div>
                                      <div class="col-lg-6">
                                        <label>Color</label>
                                        <input type="text" v-model="color" class="form-control" >
@@ -73,7 +78,7 @@ export default{
       type:'',
       prix:'',
       file:'',
-      Quantity:''
+      message_error:""
     }
   },
   props:{
@@ -99,11 +104,23 @@ export default{
             this.color = "" ;
             this.Quantity="";
             this.Name_Product = "" ;
-            this.$emit("choice");
+            this.$emit("choice","choice");
         }).catch((error)=>{
             console.log(error);
         }) ;
-    }
+    },
+    Onsubmit() {
+      if(this.Name_Product=="" &&
+        this.color=="" && 
+        this.type=="" &&
+        this.prix=="" &&
+        this.file==""){
+          this.message_error="All Field Are required";
+       }else{
+        this.Add_Product();
+     }
+    },
+ 
   },
   
 }

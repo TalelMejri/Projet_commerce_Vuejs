@@ -5,7 +5,7 @@ import shop from "../views/ShopView.vue";
 import login from "../views/LoginView.vue";
 import signup from "../views/SignUpView.vue";
 import ProfilAdmin from "../views/ProfilAdminView.vue";
-
+import editProduct from "../views/Product/EditProductView.vue";
 //import { useAuthStore } from "@/store/auth.store";
 
 const routes = [
@@ -13,6 +13,12 @@ const routes = [
     path: "/",
     name: "home",
     component: HomeView,
+  },
+
+  {
+    path: "/editProduct/:id",
+    name: "editProduct",
+    component: editProduct,
   },
 
   {
@@ -53,7 +59,9 @@ const routes = [
 const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
   routes,
+
 });
+
 /*
 router.beforeEach((to, from) => {
   

@@ -78,7 +78,7 @@
                           </a>
                         </li>
                         <li>
-                          <a @click="choice_componet(' Consult_Produt')" href="#" class="nav-link text-white">
+                          <a @click="choice_componet('Consult_Produt')" href="#" class="nav-link text-white">
                             <i class="bi me-2" style="color:white" ><font-awesome-icon icon="fa-solid fa-shop"/></i>
                              <h3>  Consult Produt</h3>  
                           </a>
@@ -89,9 +89,7 @@
         </div>
         <div class="right">
           <div>
-            <router-view v-slot="{ Component }">
-              <transition name="fade"  mode="out-in">
-                <component :is="Component" />
+           
              <div v-if="selected=='dashboard'">
               <div class="py-2">
                 <highcharts :options="chartOptions"></highcharts>
@@ -122,13 +120,11 @@
                   <AddProductVue @choice="choice"></AddProductVue>
              </div>
              <div  v-else-if="selected=='Consult_User'">
-                   <Consult_User></Consult_User>
+                   <Consult_User @changer_user="changer_user" :users="users"></Consult_User>
              </div>
-             <div v-else>
-                  <ConsulteProduct  :nbrproduct="nbrproduct"></ConsulteProduct>
+             <div v-else >
+                  <ConsulteProduct  @choice_componet="choice" :selected="selected"  :nbrproduct="nbrproduct"></ConsulteProduct>
              </div>
-            </transition>
-            </router-view>
          </div>
         </div>
       </div>
@@ -141,6 +137,7 @@ import {Chart} from 'highcharts-vue';
 import AddProductVue from "@/components/admin/AddProduct.vue";
 import Consult_User from '@/components/admin/ConsulteUser.vue';
 import ConsulteProduct from "@/components/admin/ConsulteProduct.vue";
+
 import $ from 'jquery';
 import { useAuthStore } from '@/store/auth.store';
 import service from "@/services/service.js";
@@ -160,22 +157,24 @@ export default {
               nbrproduct:0,
               color_choice:'#389466',
               selected:'dashboard',
-              chartOptions: {
-              series: [{
-                 data: [0,1,2,this.nbruser] 
-               }]
-      }
+              users:[]
           }
      },
+     
      created(){
-
+      //{...users};
         service.getCountUser().then((response)=>{
             console.log(response.data);
             this.nbruser=response.data.data;
         }).catch((error)=>{
             console.log(error);
         });
-
+       
+        service.get_All_users().then((response)=>{
+         
+          this.users=response.data.data;
+          console.log(this.users);
+        })
 
         service.get_count_product().then((response)=>{
           this.nbrproduct=response.data[1];
@@ -185,11 +184,15 @@ export default {
 
      },
      methods: {
+      changer_user(user){
+
+        this.users=user;
+      },
         choice_componet(name){
             this.selected=name;
         },
        choice(){
-          this.selected="Consult_Produt";
+          this.selected="Consult_Produt"; 
        },
         changer_color(color){
             this.color_choice=color;
@@ -199,6 +202,15 @@ export default {
                this.store.logout();
           }
      },
+     computed: {
+      chartOptions(){
+        return {
+          series: [{
+            data: [0,1,2,this.nbruser] 
+               }]
+          }
+      }
+     }
   
 }
 
