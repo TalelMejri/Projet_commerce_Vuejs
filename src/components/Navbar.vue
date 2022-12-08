@@ -3,7 +3,7 @@
         <nav :class="{change_color: scrollPosition > 50}" class="mb-5 navbar navbar-expand-lg text-uppercase fixed-top ">
             <div class="container position-relative">
               
-                <a class="navbar-brand" href="##"><img src="../assets/logo_final.png" width="50px" height="50px" alt=""> </a>
+                <a class="navbar-brand" href="##"><img src="../assets/logo_final.png" style="width:50px !important; height:50px !important"  alt="">   </a>
                 <button class="navbar-toggler text-uppercase font-weight-bold bg-primary  text-primary rounded" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                     <i style="color:#4fc3dc" class="fas fa-bars"></i>
                 </button>
