@@ -15,7 +15,6 @@
                                  <div class="box">
                                      <img :class="{disabledimage:product.Quantity==0}" style="width:120px !important; height:120px !important" :src="'http://localhost:8000' + product.file"  :alt="product.name_product">
                                      <div class="content">
-                                         <!--<i style="cursor:pointer" @click="changer_favorite(our1)"  :class=" our1.favorite ? 'text-danger material-icons mx-2' : 'material-icons mx-2' "> favorite</i>--> 
                                          <h3>{{product.name_product}}</h3>
                                          <p>{{product.Quantity}}(available)  <br> {{product.prix}} dt</p>
                                      </div>
@@ -45,7 +44,6 @@
                                  <div class="box">
                                      <img :class="{disabledimage:product.Quantity==0}" :src="'http://localhost:8000' + product.file" style="width:120px !important; height:120px !important"  :alt="product.name_product">
                                      <div class="content">
-                                         <!--<i style="cursor:pointer" @click="changer_favorite(our1)"  :class=" our1.favorite ? 'text-danger material-icons mx-2' : 'material-icons mx-2' "> favorite</i>--> 
                                          <h3>{{product.name_product}}</h3>
                                          <p>{{product.Quantity}}(available)  <br> {{product.prix}} dt</p>
                                      </div>
@@ -78,11 +76,17 @@ export default{
            this.$emit("sortby");
         },
         add_product(product){
-            let index=this.all_product_add.find((v)=>v.id!=product.id);
-            this.all_product_add.push(product);
-            window.localStorage.setItem("product",JSON.stringify(this.all_product_add));
-            this.all_product_add= JSON.parse(localStorage.getItem("product"))!=null ?  JSON.parse(localStorage.getItem("product")) : '';
-            this.$emit("add_product",this.all_product_add);
+            let cart=1;
+            let index=this.all_product_add.find((v)=>v.product.id==product.id);
+            if(!index){
+              this.all_product_add.push({
+                 product:product,
+                 cart:cart
+              });
+            /*localStorage.setItem("product",JSON.stringify(this.all_product_add));
+              this.all_product_add= JSON.parse(localStorage.getItem("product"))!=null ?  JSON.parse(localStorage.getItem("product")) : '';*/
+              this.$emit("add_product",this.all_product_add);
+            }
         }
     },
     
