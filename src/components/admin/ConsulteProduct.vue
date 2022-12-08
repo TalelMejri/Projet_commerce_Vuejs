@@ -1,5 +1,6 @@
 <template>
   <div class="container py-5">
+    
     <div class="card">
       <div class="row text-center card-header">
         <div class="col-lg-4 mb-2">
@@ -39,7 +40,7 @@
         >
           <div class="face face1">
             <div class="content">
-              <img :src="'http://localhost:8000' + tab.file" />
+              <img  :src="'http://localhost:8000' + tab.file" />
               <h2>{{ tab.type }}</h2>
             </div>
           </div>
@@ -215,8 +216,9 @@ export default {
 <style scoped>
 .carde {
   position: relative;
-  width: 280px;
-  height: 200px;
+  width: 150px;
+  height:200px;
+  margin-top:50px;
 }
 .carde .face {
   position: absolute;
@@ -236,13 +238,13 @@ export default {
 }
 .carde .face.face1 img {
   width: 100%;
-  height: 100%;
+  height: 50%;
 }
 .carde .face.face1 h2 {
   margin: 4px 0 0;
   color: #000;
   text-align: center;
-  font-size: 1.5em;
+  font-size: 20px;
 }
 .carde:hover .face.face1 {
   transform: translateY(-100%) rotateX(90deg);
