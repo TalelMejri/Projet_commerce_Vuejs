@@ -145,7 +145,7 @@ export default{
 </script>
 
 
-<style>
+<style scoped>
 .move_input {
   animation: animate 0.5s;
 }
