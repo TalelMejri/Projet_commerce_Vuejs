@@ -15,14 +15,14 @@ import 'aos/dist/aos.css';
 import { library } from '@fortawesome/fontawesome-svg-core';
 
 import HighchartsVue from 'highcharts-vue'
-import { faSpinner,faUser,faComment,faImage,faCertificate,faAdd,faList,faBell,faThumbsUp,faUserGroup,faBars, faUserCheck, faCalculator, faShop,faEyeSlash,faEye,faHouseUser,faAngleRight} from '@fortawesome/free-solid-svg-icons';
+import { faSpinner,faUser,faComment,faImage,faCertificate,faAdd,faList,faBell,faCircleCheck,faThumbsUp,faUserGroup,faBars,faCartShopping, faUserCheck, faCalculator, faShop,faEyeSlash,faEye,faHouseUser,faAngleRight,faCircle} from '@fortawesome/free-solid-svg-icons';
 import { faFacebook,faLinkedin,faTwitter,faYoutube } from '@fortawesome/free-brands-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 import { createPinia } from 'pinia';
 import { jwtInterceptor } from './globals/interceptors';
 
-library.add(faSpinner,faFacebook,faLinkedin,faUser,faTwitter,faAdd,faYoutube,faComment,faImage,faCertificate,faBars,
-    faThumbsUp,faUserGroup,faList,faUserCheck,faCalculator,faShop,faEyeSlash,faEye,faBell,faAngleRight,faHouseUser);
+library.add(faSpinner,faFacebook,faLinkedin,faUser,faTwitter,faAdd,faYoutube,faComment,faCircleCheck,faImage,faCertificate,faBars,faCartShopping,
+    faThumbsUp,faUserGroup,faList,faUserCheck,faCalculator,faShop,faEyeSlash,faEye,faBell,faAngleRight,faCircle,faHouseUser);
 
 const pinia = createPinia()
 
