@@ -84,6 +84,10 @@ export default{
        return axios.get(`/get_all_product?${ a ? "search="+a : ""}&page=${b}`);
     },
 
+    get_all_product_user(){
+      return axios.get('/get_all_product_user');
+    },
+
     get_count_product(){
       return axios.get("/count_product");
     },
