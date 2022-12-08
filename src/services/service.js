@@ -88,6 +88,10 @@ export default{
       return axios.get('/get_all_product_user');
     },
 
+    decremente_quantity(product){
+   
+      return axios.post('/decremente_quantity/',product);
+    },
     get_count_product(){
       return axios.get("/count_product");
     },
