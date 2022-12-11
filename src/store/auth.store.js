@@ -7,7 +7,8 @@ export const useAuthStore = defineStore('auth', () => {
     const token = ref(localStorage.getItem('token')??null);
     const user = ref(JSON.parse(localStorage.getItem('user'))??null);
     const isAuth = ref((localStorage.getItem('user')&&localStorage.getItem('token')));
-    const isAdmin = ref(localStorage.getItem('Isadmin')??null);
+    const isAdmin = ref(localStorage.getItem('Isadmin')??false);
+    const isClient = ref(localStorage.getItem('isClient')??false);
     
     const getUser = computed(() => user.value);
     const getToken = computed(() => token.value);
@@ -17,10 +18,11 @@ export const useAuthStore = defineStore('auth', () => {
     function login(t,u,check) {
         token.value = t;
         user.value = u;
-        isAdmin.value=check;
-        isAuth.value = true;
+        isAdmin.value= u.role == 0 ? false : true;
+        isClient.value = u.role == 0 ?true:false;
         localStorage.setItem('token',t);
         localStorage.setItem('Isadmin',check);
+        localStorage.setItem('isClient',isClient.value);
         localStorage.setItem('user',JSON.stringify(u));
         if(check==true){
             router.push({name:"ProfilAdmin"});
@@ -41,6 +43,14 @@ export const useAuthStore = defineStore('auth', () => {
         router.push({name:"login"});
     }
 
-    return { token,user,isAuth,isAdmin,login,logout,getUser}
+    function getIsAdmin(){
+        return isAdmin.value;
+    }
+
+    function getIsClient(){
+        return isClient.value;
+    }
+
+    return { token,user,isAuth,isAdmin,login,logout,getUser,getIsAdmin,getIsClient}
 
 })
