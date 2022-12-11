@@ -152,38 +152,6 @@
   
   /**************** cercle from top ************/
   
-  .circle{
-    display: flex;
-    position:absolute;
-    top: 0;
-    left: 0;
-    z-index: 0;
-  }
-  
-  .circle span{
-    position: relative;
-    width: 30px;
-    height: 30px;
-    background-color: #4fc3dc;
-    margin: 0 20px;
-    border-radius: 50%;
-    box-shadow: 0 0 0 10px #4fc3dc44,0 0 50px #4fc3dc,0 0 100px #4fc3dc;
-    animation: animate 5s linear infinite;
-    animation-duration: calc(125s/var(--i));
-  }
-  
-  .circle span:nth-child(even){
-    background-color: #ff2d75;
-    box-shadow: 0 0 0 10px #ff2d75,0 0 50px #ff2d75,0 0 100px #ff2d75;
-  }
-  
-  @keyframes animate {
-    0%{
-      transform: translateY(0) scale(0);
-    }
-    100%{ transform: translateY(100vh) scale(0.5);
-    }
-  }
   
   /********************************************/
   
