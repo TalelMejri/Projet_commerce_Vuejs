@@ -34,9 +34,9 @@ export default{
         return{
             all_service:[
                 {number:'400',classpropre:'blue',icon:'comment',nom:'Contact Other',description:'You can talk with any human in the world with Us '},
-                {number:'500',classpropre:'orange',icon:'certificate',nom:'Take Certificat',description:'You wanna certficat in pho,js,html and css'},
+               // {number:'500',classpropre:'orange',icon:'certificate',nom:'Take Certificat',description:'You wanna certficat in pho,js,html and css'},
                 {number:'600',classpropre:'green',icon:'shop',nom:'Shop ',description:'check our SHop'},
-                {number:'700',classpropre:'red',icon:'calculator',nom:'Average',description:'calculating your average'},
+             //   {number:'700',classpropre:'red',icon:'calculator',nom:'Average',description:'calculating your average'},
             ]
         }
     }
