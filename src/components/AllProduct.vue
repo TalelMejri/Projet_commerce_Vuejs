@@ -51,7 +51,7 @@
                              </div>
                              <div>
                                   <button  :disabled="product.Quantity==0" class="btn btn-outline-success" @click="add_product(product)">Add</button>
-                                  <button   class="btn btn-outline-danger mx-2"> Delete </button>
+                              
                              </div>
                          </div>
                     </div>
@@ -76,16 +76,17 @@ export default{
            this.$emit("sortby");
         },
         add_product(product){
-            let cart=1;
             let index=this.all_product_add.find((v)=>v.product.id==product.id);
             if(!index){
               this.all_product_add.push({
                  product:product,
-                 cart:cart
+                 cart:1
               });
             /*localStorage.setItem("product",JSON.stringify(this.all_product_add));
               this.all_product_add= JSON.parse(localStorage.getItem("product"))!=null ?  JSON.parse(localStorage.getItem("product")) : '';*/
               this.$emit("add_product",this.all_product_add);
+            }else{
+                alert("Product already added");
             }
         }
     },
