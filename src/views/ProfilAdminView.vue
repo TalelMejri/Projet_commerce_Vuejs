@@ -224,7 +224,6 @@
             <ConsulteProduct
               @choice_componet="choice"
               :selected="selected"
-              :nbrproduct="nbrproduct"
             ></ConsulteProduct>
           </div>
         </div>
