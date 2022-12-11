@@ -12,7 +12,7 @@
 
                         <li class="nav-item mx-0 mx-lg-1"><a class="nav-link link_navbar text-center px-0 px-lg-3 rounded" href="#"><router-link to="/">Home</router-link> </a></li>
                         <li class="nav-item mx-0 mx-lg-1"><a class="nav-link link_navbar text-center px-0 px-lg-3 rounded" href="#"><router-link to="/shop">Shop</router-link></a></li>
-                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link link_navbar text-center px-0 px-lg-3 rounded" href="#"><router-link to="/Calculer">Calculer Moyenne</router-link></a></li>
+                       
 
                     </ul>
                   

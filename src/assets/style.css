@@ -329,9 +329,10 @@
     font-weight: 400;
   }
   
-   .box:hover  {
+  #service .box:hover  {
     color: #fff!important;
   }
+  
   
   /********************************************/
   

@@ -22,7 +22,7 @@
                              </div>
                              <div>
                                   <button  :disabled="product.Quantity==0" @click="add_product(product)" class="btn btn-outline-success">Add</button>
-                                  <button   class="btn btn-outline-danger mx-2"> Delete </button>
+                          
                              </div>
                          </div>
                     </div>
