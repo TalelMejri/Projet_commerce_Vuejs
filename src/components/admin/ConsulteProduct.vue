@@ -1,6 +1,5 @@
 <template>
   <div class="container py-5">
-    
     <div class="card">
       <div class="row text-center card-header">
         <div class="col-lg-4 mb-2">
@@ -17,7 +16,7 @@
           </form>
         </div>
         <div class="col-lg-4 text-primary">
-          <strong> Product List Data Table | {{ nbrproduct }} </strong>
+          <strong> Product List Data Table | {{ mynbr }} </strong>
         </div>
       </div>
     </div>
@@ -40,7 +39,7 @@
         >
           <div class="face face1">
             <div class="content">
-              <img  :src="'http://localhost:8000' + tab.file" />
+              <img :src="'http://localhost:8000' + tab.file" />
               <h2>{{ tab.type }}</h2>
             </div>
           </div>
@@ -55,11 +54,12 @@
                   <strong>Name Product</strong>{{ tab.name_product }}
                 </p>
                 <div class="d-flex gap-4">
-               
                   <button class="btn btn-warning">
-                    <router-link :to="'/editProduct/'+tab.id">   Edit   </router-link>
+                    <router-link :to="'/editProduct/' + tab.id">
+                      Edit
+                    </router-link>
                   </button>
-              
+
                   <button
                     type="button"
                     class="btn btn-danger"
@@ -152,13 +152,12 @@
 </template>
 
 <script>
-//import $ from "jquery";
+import $ from "jquery";
 import service from "@/services/service";
 
 export default {
   name: "ConsulteProduct",
   props: {
-    nbrproduct: String,
     selected: String,
   },
   data() {
@@ -171,22 +170,23 @@ export default {
         prev_page: 0,
         total: 0,
         per_page: 0,
+        mynbr: 1,
       },
     };
   },
-  created() {
+  mounted() {
     this.searchData();
+    this.changePage(1);
     // setTimeout(() => (this.prealoder = false), 3000);
   },
   methods: {
-    
     changePage(page) {
       this.pagination.current_page = page;
       this.searchData();
     },
 
     searchData() {
-        this.prealoder = true;
+      this.prealoder = true;
       service
         .get_all_product(this.search, this.pagination.current_page)
         .then((response) => {
@@ -198,15 +198,21 @@ export default {
           this.pagination.per_page = response.data.per_page;
           this.pagination.total = response.data.total;
           this.prealoder = false;
+          service.get_count_product().then((res) => {
+            console.log(res.data[1]);
+            this.mynbr = res.data[1];
+            console.log(this.mynbr);
+          });
         });
     },
 
     deleteProduct(id) {
       service.delete_product(id).then(() => {
         service.get_count_product().then((res) => {
-          this.nbrproduct = res.data.data;
+          this.mynbr = res.data[1];
         });
-        this.$router.go();
+        this.searchData();
+        $(" [data-bs-dismiss=modal] ").trigger({ type: "click" });
       });
     },
   },
@@ -217,8 +223,8 @@ export default {
 .carde {
   position: relative;
   width: 150px;
-  height:200px;
-  margin-top:50px;
+  height: 200px;
+  margin-top: 50px;
 }
 .carde .face {
   position: absolute;
