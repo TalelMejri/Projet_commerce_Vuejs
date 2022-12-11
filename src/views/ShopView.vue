@@ -156,7 +156,7 @@
         </div>
       </div>
 
-      <main class="container-fluid mt-5 py-2">
+      <main class="container mt-5 py-2">
         <div
           class="
             mb-4
@@ -175,7 +175,7 @@
               alt=""
             />
           </div>
-          <div class="m-2">
+          <div class="m-2 ">
             <div @click="i = 0">
               <font-awesome-icon :icon="i==0 ? 'fa-solid fa-circle-check' : 'fa-solid fa-circle'" />
             </div>
@@ -248,6 +248,9 @@ export default {
     service.get_all_product_user().then((res) => {
       this.Products = res.data.data;
     });
+    setInterval(()=>{
+      this.i = this.i==3?0:this.i+1;
+    },3000);
   },
   mounted() {
     setTimeout(() => (this.loading = false), 2000);
@@ -318,7 +321,7 @@ export default {
       this.$confetti.start();
       setTimeout(()=> this.$confetti.stop(),5000);
       this.update_product(this.all_product_add);
-    
+      
       const doc = new jsPDF({
         orientation:"portrait",
         unit:"in",
@@ -346,7 +349,7 @@ export default {
       })  
         doc.save(`${Math.random()}.pdf`);
         this.all_product_add=[];
-        this.$router.go();
+       setTimeout(()=>this.$router.go(),3000); 
     },
 
   },
